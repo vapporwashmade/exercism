@@ -1,0 +1,32 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unknown </title></head><body>
+<h2 id="executable">Executable</h2>
+<p>Unpack the archive relevant to your machine and place in $PATH</p>
+<h2 id="shell-completion-scripts">Shell Completion Scripts</h2>
+<h3 id="bash">Bash</h3>
+<pre><code>mkdir -p ~/.config/exercism
+mv ../shell/exercism_completion.bash ~/.config/exercism/exercism_completion.bash
+</code></pre>
+<p>Load the completion in your <code>.bashrc</code>, <code>.bash_profile</code> or <code>.profile</code> by
+adding the following snippet:</p>
+<pre><code>if [ -f ~/.config/exercism/exercism_completion.bash ]; then
+  source ~/.config/exercism/exercism_completion.bash
+fi
+</code></pre>
+<h3 id="zsh">Zsh</h3>
+<p>Load up the completion by placing the <code>exercism_completion.zsh</code> somewhere on
+your <code>$fpath</code> as <code>_exercism</code>. For example:</p>
+<pre><code>mkdir -p ~/.zsh/functions
+mv ../shell/exercism_completion.zsh ~/.zsh/functions/_exercism
+</code></pre>
+<p>and then add the directory to your <code>$fpath</code> in your <code>.zshrc</code>, <code>.zsh_profile</code> or
+<code>.profile</code> before running <code>compinit</code>:</p>
+<pre><code>export fpath=(~/.zsh/functions $fpath)
+autoload -U compinit &amp;&amp; compinit
+</code></pre>
+<h4 id="oh-my-zsh">Oh my Zsh</h4>
+<p>If you are using the popular <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> framework to manage your zsh plugins, move the file <code>exercism_completion.zsh</code> into <code>~/.oh-my-zsh/custom</code>.</p>
+<h3 id="fish">Fish</h3>
+<p>Completions must go in the user defined <code>$fish_complete_path</code>. By default, this is <code>~/.config/fish/completions</code></p>
+<pre><code>mv ../shell/exercism.fish ~/.config/fish/exercism.fish
+</code></pre>
+</body></html>
