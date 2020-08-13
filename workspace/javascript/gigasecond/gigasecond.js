@@ -4,6 +4,7 @@
 //
 
 export const gigasecond = (date) => {
-  var ms = date.getTime();
-  return new Date(ms+1000000000000);
+  const ms = date.getTime();
+  const gigasecond_in_ms = 1000000000000;
+  return new Date(ms+gigasecond_in_ms);
 };
